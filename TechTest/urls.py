@@ -24,6 +24,7 @@ urlpatterns = [
     url(r'^$', views.home, name='home'), 
     url(r'^testing/sign_up/$',views.sign_up,name="sign-up"),
     url(r'^testing/simple/$', views.simple_upload, name='simple_upload'),
+    # url(r'^testing/simple/<int:id>/$', views.simple_upload, name='simple_upload'),
     url(r'^testing/form/$', views.model_form_upload, name='model_form_upload'),
     url(r'^admin/', admin.site.urls),
     # url(r'^testing/$,('django.contrib.auth.urls')),

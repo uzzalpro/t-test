@@ -33,19 +33,21 @@ def sign_up(request):
 
 
 
-def simple_upload(request):
+def simple_upload(request): # id
     if request.method == 'POST' and request.FILES['myfile']:
         myfile = request.FILES['myfile']
         fs = FileSystemStorage()
         filename = fs.save(myfile.name, myfile)
         uploaded_file_url = fs.url(filename)
+        # current_user = request.user
+        # user_id = current_user.id        
         return render(request, 'testing/simple_upload.html', {
             'uploaded_file_url': uploaded_file_url
         })
     return render(request, 'testing/simple_upload.html')
 
 
-def model_form_upload(request):
+def model_form_upload(request):  #id
     if request.method == 'POST':
         form = DocumentForm(request.POST, request.FILES)
         if form.is_valid():
